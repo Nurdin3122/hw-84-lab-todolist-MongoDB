@@ -47,7 +47,7 @@ userRouter.post("/secret",auth,async  (req,res) => {
     const user = (req as RequestWithUser).user;
 
     return res.send({
-        message: user,
+        message:user,
         username: user.username,
     });
 });
