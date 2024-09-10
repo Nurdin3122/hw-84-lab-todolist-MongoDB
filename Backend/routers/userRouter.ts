@@ -3,7 +3,6 @@ import {randomUUID} from "crypto";
 import {Error} from "mongoose";
 import User from "../models/Users";
 import bcrypt from "bcrypt";
-import auth, {RequestWithUser} from "../middlewareUsers";
 const userRouter = express.Router();
 
 
@@ -40,16 +39,6 @@ userRouter.post("/sessions",async  (req,res) => {
     await user.save()
     console.log("everything is ok",user)
     return res.send("everything is ok" + "\n" +  user);
-});
-
-
-userRouter.post("/secret",auth,async  (req,res) => {
-    const user = (req as RequestWithUser).user;
-
-    return res.send({
-        message:user,
-        username: user.username,
-    });
 });
 
 export default userRouter
