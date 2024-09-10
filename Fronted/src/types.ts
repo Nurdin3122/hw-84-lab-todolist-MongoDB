@@ -9,3 +9,16 @@ export interface User {
     password:string;
     token:string;
 }
+
+export interface Task {
+    id:string;
+    user:string;
+    username:string;
+    title:string;
+    description:string;
+}
+
+export interface TaskMutation {
+    title:string;
+    description:string;
+}

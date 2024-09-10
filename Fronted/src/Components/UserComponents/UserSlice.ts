@@ -1,16 +1,16 @@
 import {createSlice} from "@reduxjs/toolkit";
 import {User} from "../../types.ts";
-import {createUser, loginUser} from "./UserThunks.ts";
+import {createUser,loginUser} from "./UserThunks.ts";
 
 
 export interface userState {
-    user:User[]
+    users:User[]
     loading:boolean;
     error:boolean;
 }
 
 export const initialState:userState = {
-    user:[],
+    users:[],
     loading:false,
     error:false,
 }
@@ -43,7 +43,6 @@ export  const UserSlice = createSlice<userState>({
             state.loading = false;
             state.error = true
         });
-
     }
 });
 

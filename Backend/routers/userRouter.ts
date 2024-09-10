@@ -38,7 +38,7 @@ userRouter.post("/sessions",async  (req,res) => {
     user.token = randomUUID();
     await user.save()
     console.log("everything is ok",user)
-    return res.send("everything is ok" + "\n" +  user);
+    return res.send(user);
 });
 
 export default userRouter

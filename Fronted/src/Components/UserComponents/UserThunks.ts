@@ -14,6 +14,9 @@ export const loginUser = createAsyncThunk(
     "user/loginUser",
     async (newUser) => {
         const response = await axiosApi.post<UserMutation>('/users/sessions', newUser);
+        const {_id, token} = response.data
+        localStorage.setItem('token', token);
+        localStorage.setItem('id', _id);
         return response.data
     }
-)
+);
